@@ -3,19 +3,13 @@
 
 Integrantes:
 
-Torres David Ricardo
-
-Nuñez Rodrigo 
-
-Doxastakis Horacio
-
-Isnardo Merino Francisco
-
-Candia Sergio
-
-Ricardo Ramón Alfredo Cardozo
-
-Santiago Durand
+- Torres David Ricardo
+- Nuñez Rodrigo 
+- Doxastakis Horacio
+- Isnardo Merino Francisco
+- Candia Sergio
+- Ricardo Ramón Alfredo Cardozo
+- Santiago Durand
 
  
 ## Installation
