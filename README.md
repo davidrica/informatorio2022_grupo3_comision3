@@ -1,5 +1,6 @@
 # TRABAJO FINAL 
 ![mibellaciudad](/extras/mibellaciudad.jpg "MI BELLA CIUDAD")
+
 ## Grupo 3 - Comisión 3
 ### Integrantes:
 
@@ -15,6 +16,7 @@
 ### Objetivo
 Desarrollar una aplicación web que responda a la necesidad especificada
 LINEAMIENTOS GENERALES [aquí](https://drive.google.com/drive/u/0/folders/13XJlln4yatOcTCmHa4IY3cW9LObjZdNX)
+ONG Tipo Blog  [aquí](https://docs.google.com/document/d/1Fssu1zcPqSwU8UYplHu1ebGUJ2CDJrgcEYtJA2tSO7g/edit)
 
 ## Planificación de Aatividades
 Herramientas a utilizar: TRELLO
