@@ -1,8 +1,6 @@
 # TRABAJO FINAL 
-## Grupo 3 - Comisión 3
-
 ![mibellaciudad](/extras/mibellaciudad.jpg "MI BELLA CIUDAD")
-
+## Grupo 3 - Comisión 3
 ### Integrantes:
 
 - Torres David Ricardo
