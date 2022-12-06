@@ -1,7 +1,15 @@
 # TRABAJO FINAL 
+## Grupo 3 - Comisión 3
 
-Foobar is a Python library for dealing with word pluralization.
-
+Integrantes:
+Torres David Ricardo
+Nuñez Rodrigo 
+Doxastakis Horacio
+Isnardo Merino Francisco
+Candia Sergio
+Ricardo Ramón Alfredo Cardozo
+Santiago Durand
+ 
 ## Installation
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
