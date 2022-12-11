@@ -27,6 +27,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#Establece el modelo a usar para los Usuarios
+AUTH_USER_MODEL = "usuarios.Usuario"
+
+#URL para Login - Logout
+LOGIN_REDIRECT_URL = "/"
+LOGIN_URL = "/login/"
+
 
 # Application definition
 
@@ -37,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'usuarios',
+    'noticias'
 ]
 
 MIDDLEWARE = [
@@ -54,7 +63,7 @@ ROOT_URLCONF = 'tf.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,9 +84,15 @@ WSGI_APPLICATION = 'tf.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'mssql',
+        'NAME': 'tf',
+        'USER': 'sa',
+        'PASSWORD': 'sa',
+        'HOST': 'DAVID\SQLEXPRESS',
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server'
+        },
+    },
 }
 
 

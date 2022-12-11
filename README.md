@@ -22,6 +22,14 @@ ONG Tipo Blog: Requisitos específicos [aquí](https://docs.google.com/document/
 ## Planificación de Aatividades
 Herramientas a utilizar: TRELLO
 [Link](https://trello.com/invite/b/spHry5OD/ATTIeda0d7f0000b3e36de02a95271a334e275F1D301/trabajo-final-informatorio)
+
+## DER - MER
+Analisis realizado.
+[link](https://drive.google.com/file/d/1LAV7Bs-lR3eg0AGWyTOf_tvQ3fCd3cSX/view?usp=sharing)
+
+## Frontend
+
+
 ## Installation
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
