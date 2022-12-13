@@ -19,7 +19,7 @@ LINEAMIENTOS GENERALES [aquí](https://drive.google.com/drive/u/0/folders/13XJll
 
 ONG Tipo Blog: Requisitos específicos [aquí](https://docs.google.com/document/d/1Fssu1zcPqSwU8UYplHu1ebGUJ2CDJrgcEYtJA2tSO7g/edit)
 
-## Planificación de Aatividades
+## Planificación de Actividades
 Herramientas a utilizar: TRELLO
 [Link](https://trello.com/invite/b/spHry5OD/ATTIeda0d7f0000b3e36de02a95271a334e275F1D301/trabajo-final-informatorio)
 
@@ -30,13 +30,34 @@ Analisis realizado.
 ## Frontend
 
 
-## Installation
-
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
-
+## Instalacion y Puesta en Marcha
+1 - Clonar el Repositorio
 ```bash
-pip install foobar
+git clone https://github.com/davidrica/informatorio2022_grupo3_comision3
 ```
+
+2 - Acceder a la Carpeta del Proyecto
+```bash
+cd tf
+```
+3- instalar requerimientos. Asegurarse de tener un venv de python activado.
+```bash
+pip install -r requirements.txt
+```
+
+4- crear .env cambiar credenciales 
+```bash
+NAME= basedatos
+USER=usuario
+PASSWORD=password
+HOST=Localhost o PcNombre\SQLEXPRESS
+```
+5- Correr el Servidor
+```bash
+python manage.py runserver
+```
+
+
 
 ## Usage
 

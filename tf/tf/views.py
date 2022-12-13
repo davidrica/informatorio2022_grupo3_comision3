@@ -23,14 +23,24 @@ def inicio(request):
 
 
 def login(request):
-   
+    print("aaaaaaaaaaa")
     contexto = {
         'noticias': 'aaaaaaaaaa'
     }
-    #if request.method == 'GET':
-    ##    username = request.GET['username']
-    ##    password = request.GET['password']
-    #    user = authenticate(username="david", password="david")
-    #    contexto = {}
-       
-    return render(request, "login.html", contexto)    
+    #if request.method == "POST":
+    ##    username = request.POST["user"]
+    #    password = request.POST["password"]
+    #    user = authenticate(request, username=username, password=password)
+    #    if user is not None:
+
+    #        login(request, user)
+
+            #return redirect("/")
+
+    #    else:
+
+    #        form = AuthenticationForm(request.POST)
+
+           #return render(request, "signin.html", {"form": form})
+    
+    return render(request, "login2.html", contexto)
