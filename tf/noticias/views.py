@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, UpdateView, FormView
+from django.views.generic import ListView, UpdateView, FormView,CreateView
 from django.urls import reverse
 from .models import Noticias
 from .forms import NoticiasForm,NoticiasFormEditar
@@ -17,6 +17,21 @@ class AdminListadoNoticias(ListView):
             noticias = noticias.filter(titulo__contains=titulo)
 
         return noticias.order_by("titulo")
+
+
+class NuevaNoticia(CreateView):
+    template_name = "noticias/nueva.html"
+    model = Noticias
+    form_class = NoticiasForm
+
+
+    def get_success_url(self):
+        return reverse("noticias:admin_listado_noticias")
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # context["producto"] = Producto.objects.get(id=3) 
+        return context
 
 
 

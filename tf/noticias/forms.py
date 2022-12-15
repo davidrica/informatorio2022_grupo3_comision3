@@ -5,7 +5,7 @@ from .models import Noticias
 from usuarios.models import Usuario
 
 class NoticiasForm(forms.ModelForm):
-    fecha = forms.DateField(label="Fecha", widget=forms.DateTimeInput(attrs={"class": "form-control "}))
+    #fecha = forms.DateField(label="Fecha", widget=forms.DateTimeInput(attrs={"class": "form-control "}))
     titulo= forms.CharField(label="Titulo", widget=forms.TextInput(attrs={"class": "form-control"}))
     bajada= forms.CharField(label="Bajada", widget=forms.TextInput(attrs={"class": "form-control"}))
     cuerpo= forms.CharField(label="Cuerpo", widget=forms.TextInput(attrs={"class": "form-control"}))
