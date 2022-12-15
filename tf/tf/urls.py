@@ -23,10 +23,16 @@ from . import views
 urlpatterns= [
     path('admin/', admin.site.urls),
     path('', views.inicio, name="inicio"),
+    path('about', views.about, name="about"),
+    path('mision', views.mision, name="mision"),
+    path('vision', views.vision, name="vision"),
+    path('descargas', views.descargas, name="descargas"),
+    path('contacto', views.contacto, name="contacto"),
+    
 
     path('login/', auth_views.LoginView.as_view(template_name="login.html"), name='login'),
     path('logout/', auth_views.logout_then_login, name='logout'),
 
-    path('usuarios/', include('usuarios.urls'))
-
+    path('usuarios/', include('usuarios.urls')),
+    path('noticias/', include('noticias.urls'))
 ]

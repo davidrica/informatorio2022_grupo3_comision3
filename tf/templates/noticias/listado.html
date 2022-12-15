@@ -7,18 +7,15 @@
 {% block contenido %}
     <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
 
-      <h1 class="display-4 fw-normal">Ultimas Novedades</h1>
-        <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-          <form class="d-flex" role="search" action="noticias/admin/listado/" method="get">
-            <input class="form-control me-2" type="search" placeholder="Titulo a Buscar" aria-label="Search" name="buscador">
-            <button class="btn btn-outline-success" type="submit">Buscar</button>
-        </form>
-
-        </nav>
+      <h1 class="display-4 fw-normal">Noticias</h1>
+      <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+          <form class="d-flex" role="search" method="get">
+              <input class="form-control me-2" type="search" placeholder="Titulo a Buscar" aria-label="Search" name="buscador">
+              <button class="btn btn-outline-success" type="submit">Buscar</button>
+          </form>
 
 
-
-
+      </nav>
     </div>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 " >
       {% for p in noticias %}
@@ -44,7 +41,7 @@
                     <a href="{% url 'noticias:leer' p.id %}" class="btn btn-sm btn-outline-secondary">Leer mas</a>
                     {% if p.usuario == user %}
                       
-                    <a href="{% url 'noticias:editar' p.id %}" class="btn btn-sm btn-outline-secondary">Editar</a>
+                      <a href="{% url 'noticias:editar' p.id %}" class="btn btn-sm btn-outline-secondary">Editar</a>
                     {% endif %}
                   </div>
                 </div>

@@ -1,0 +1,113 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+
+{% block css_extras %}
+
+
+<style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .b-example-divider {
+      height: 3rem;
+      background-color: rgba(0, 0, 0, .1);
+      border: solid rgba(0, 0, 0, .15);
+      border-width: 1px 0;
+      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+
+    .b-example-vr {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 100vh;
+    }
+
+    .bi {
+      vertical-align: -.125em;
+      fill: currentColor;
+    }
+
+    .nav-scroller {
+      position: relative;
+      z-index: 2;
+      height: 2.75rem;
+      overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+      display: flex;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+  </style>
+
+  
+  <!-- Custom styles for this template -->
+
+{% endblock css_extras %}
+
+{% block contenido %}
+
+<div class="col-md-8">
+    
+    <h3 class="pb-4 mb-4 fst-italic border-bottom">
+      {{ noticias.titulo }} <a href="{% url 'noticias:admin_listado_noticias' %}" class="btn btn-sm btn-outline-secondary">Volver</a>
+    </h3>
+
+    <article class="blog-post">
+      <h2 class="blog-post-title mb-1">{{noticias.bajada}}</h2>
+      <p class="blog-post-meta">{{ noticias.fecha|date:"l d/m/Y H:s" }} <a href="#">{{ noticias.usuario}}</a></p>
+
+       <hr>
+      
+      <p>{{ noticias.cuerpo}}</p>
+      
+    <article class="blog-post">
+        
+        <img src="{% static 'img/logo.jpg' %} " class="rounded" alt="...">
+        <img src="{% static 'img/logo.jpg' %} " class="rounded" alt="...">
+  
+  
+    </article>
+    <article class="blog-post">
+
+       
+        {% if user.is_authenticated %}
+         <h5>Comentarios</h5>
+        {% else %}
+            <div class="alert alert-danger" role="alert">Para Comentar debe Iniciar Session
+            <a class="me-3 py-2 text-dark text-decoration-none" href="/login/"> Aqui</a>
+        </div>
+        {% endif %}
+  
+  
+    </article>
+  
+    <nav class="blog-pagination" aria-label="Pagination">
+      <a class="btn btn-outline-primary rounded-pill" href="#">Subir</a>
+      <a href="{% url 'noticias:admin_listado_noticias' %}" class="btn btn-sm btn-outline-secondary">Volver</a>
+    </nav>
+
+  </div>
+<div class="text-center pt-1 mb-5 pb-1">
+    {% include 'includes/errores_form.html' %}
+</div>
+{% endblock contenido %}
+
