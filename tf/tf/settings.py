@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'usuarios',
-    'noticias'
+    'noticias',
+    'comentarios',
+    'categorias'
 ]
 
 MIDDLEWARE = [
@@ -133,3 +135,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+MEDIA_URL= "/media/"
+MEDIA_ROOT= "/media/"
