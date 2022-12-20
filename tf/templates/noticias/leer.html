@@ -80,18 +80,44 @@
       <p>{{ noticias.cuerpo}}</p>
       
     <article class="blog-post">
+      {% if noticias.imagen %}
+        <img src="{{noticias.imagen.url}}" class="bd-placeholder-img card-img-top" width="100%" height="225">
+      {% else %}
+        <img src="{% static 'img/logo.jpg' %} " class="rounded" alt="...">
+      {% endif %}
+
         
-        <img src="{% static 'img/logo.jpg' %} " class="rounded" alt="...">
-        <img src="{% static 'img/logo.jpg' %} " class="rounded" alt="...">
-  
+
   
     </article>
     <article class="blog-post">
 
-       
+      <h5>Comentarios</h5>
+        
         {% if user.is_authenticated %}
-         <h5>Comentarios</h5>
-        {% else %}
+          <div class="alert alert-info" >
+          
+          {% for c in comentarios %}
+              
+              <div>
+              <p >{{ c.fecha|date:"l d/m/Y H:s" }}
+                <span>{{ c.comentario }}</span>
+              </p>
+            </div>
+            
+
+            
+          {% endfor %}
+          
+          <form action = "" method = "POST"> {% csrf_token %}
+            <input type="hidden" id="noticia" name="noticia" value="{{ noticias.id }}"/>
+            <input type="text" id="comentar" name="comentar" required >
+
+            <input type = "submit" value = "comentar!"/>
+          </form>
+        
+        </div>
+      {% else %}
             <div class="alert alert-danger" role="alert">Para Comentar debe Iniciar Session
             <a class="me-3 py-2 text-dark text-decoration-none" href="/login/"> Aqui</a>
         </div>

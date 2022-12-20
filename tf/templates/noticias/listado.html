@@ -8,10 +8,24 @@
     <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
 
       <h1 class="display-4 fw-normal">Noticias</h1>
+      {% include 'includes/paginado.html' %}
       <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
           <form class="d-flex" role="search" method="get">
+            <input class="form-select" aria-label="Fecha" type="date" name="fecha">
+            <select class="form-select" aria-label="Seleccion Categoria" name="categoria" >
+              <option value="0">Todas</option>
+              {% for c in listacategorias.all %}
+                  
+                <option value="{{c.id}}">{{ c }}</option>
+
+              
+              
+              {% endfor %}
+
+            </select>
               <input class="form-control me-2" type="search" placeholder="Titulo a Buscar" aria-label="Search" name="buscador">
               <button class="btn btn-outline-success" type="submit">Buscar</button>
+              <a href="{% url 'noticias:admin_nueva_noticia' %}" class="btn btn-outline-secondary">Nueva</a>
           </form>
 
 
@@ -39,10 +53,15 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <a href="{% url 'noticias:leer' p.id %}" class="btn btn-sm btn-outline-secondary">Leer mas</a>
-                    {% if p.usuario == user %}
-                      
-                      <a href="{% url 'noticias:editar' p.id %}" class="btn btn-sm btn-outline-secondary">Editar</a>
+                    
+                    {% if user.is_authenticated %}
+                      {% if p.usuario.es_admin and p.usuario == user %}
+                    
+                        <a href="{% url 'noticias:editar' p.id %}" class="btn btn-sm btn-outline-secondary">Editar</a>
+                      {% endif %}
                     {% endif %}
+                      
+                     
                   </div>
                 </div>
               </div>
@@ -50,10 +69,16 @@
             </div>
           </div>
           <div class="row g-0">
-
-
+            {% if p.categoria %}
+              <div class="col-12 text-center">
+                <a href= "?categoria={{ p.categoria.id }}"  class="btn btn-sm btn-outline-secondary">{{ p.categoria }}</a>
+              </div>
+            {% endif %}
+            
             <div class="alert alert-primary" role="alert">
+              
               <div class="d-flex justify-content-evenly">
+                
                 <div class="p-2"> {{ p.usuario }}</div>
                 <div class="p-2">{{ p.fecha|date:"l d/m/Y H:s" }}</div>
               </div>

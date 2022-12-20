@@ -1,0 +1,89 @@
+
+
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% if exception and debug %}
+    <h3 class="font-bold">{{ exception }}</h3>
+{% endif %}
+
+{% block contenido %}
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+      
+      
+      <h1 class="display-4 fw-normal">Categorias</h1>
+      {% include 'includes/paginado.html' %}
+      <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+
+      
+        <form class="d-flex" role="search" method="get">
+          <input class="form-control me-2" type="search" placeholder="Titulo a Buscar" aria-label="Search" name="buscador">
+          <button class="btn btn-outline-success" type="submit">Buscar</button>
+          <a href="{% url 'categorias:admin_nueva_categoria' %}" class="btn btn-outline-secondary">Nueva</a>
+        </form>
+      </nav>
+      
+    </div>
+    
+    
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 " >
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+      {% for p in categorias %}
+
+          <tr>
+            <th scope="row">{{p.id}}</th>
+            <td>{{p}}</td>
+
+            <td>
+              <a href="{% url 'categorias:editar' p.id %}" class="btn btn-sm btn-outline-secondary"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+              <a href="{% url 'categorias:eliminar' p.id %}" class="btn btn-sm btn-outline-secondary"><i class="fa fa-trash" aria-hidden="true"></i></a>
+              
+            </td>
+
+           
+          </tr>
+
+
+        {% empty %}
+          <tr>
+            <th scope="row">1</th>
+            <td><div class="row">
+              <div class="col">
+                <div class="alert alert-success" role="alert">
+                  <h4 class="alert-heading">No hay categorias Cargadas</h4>
+                  <p>Todavia no se registraron categorias.</p>
+                  <hr>
+                  <p class="mb-0">Por favor ingresa mas adelante.</p>
+                </div>
+              </div>
+            </div>
+          </td>
+            
+          </tr>
+
+          
+
+        
+      {% endfor %}
+      </tbody>
+    </table>
+    
+  </div>
+
+  
+  {% endblock contenido %}
+
+  {% block js_extras %}
+
+
+  
+  {% endblock js_extras %}

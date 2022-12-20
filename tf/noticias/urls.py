@@ -4,6 +4,7 @@ from django.conf import settings
 
 from . import views
 
+
 app_name="noticias"
 
 urlpatterns = [

@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.urls import reverse
 
 from noticias.models import Noticias 
+
+
 def inicio(request):
     template_name = "index.html"
     noticias = Noticias.objects.all()
@@ -10,7 +12,7 @@ def inicio(request):
     
 
     contexto = {
-        'noticias': noticias
+        'noticias': noticias.order_by("fecha")[:10]
     }
 
     return render(request, template_name, contexto)
