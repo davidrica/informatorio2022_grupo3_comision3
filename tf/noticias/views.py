@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import ListView, UpdateView, FormView,CreateView
+from django.views.generic import ListView, UpdateView, FormView,CreateView,DeleteView
 from django.urls import reverse
-
+from django.urls import reverse_lazy
 from django.utils import timezone
 from django.utils.dateparse import parse_date
 
@@ -55,7 +55,7 @@ class AdminListadoNoticias(ListView):
         return context
 
 
-class NuevaNoticia(CreateView):
+class NuevaNoticia(LoginRequiredMixin, IsAdminMixin, CreateView):
     template_name = "noticias/nueva.html"
     model = Noticias
     form_class = NoticiasForm
@@ -75,7 +75,7 @@ class NuevaNoticia(CreateView):
 
 
 
-class EditarNoticias(UpdateView):   
+class EditarNoticias(LoginRequiredMixin, IsAdminMixin, UpdateView):   
     model         = Noticias 
     template_name = "noticias/editar.html"
     form_class    = NoticiasFormEditar     
@@ -107,3 +107,12 @@ def LeerNoticias(request,pk):
         'comentarios':Comentarios.objects.filter(noticia=pk)
     }
     return render(request, template_name, contexto)
+
+
+
+class EliminarNoticias(DeleteView):
+    model = Noticias
+    template_name = 'noticias/eliminar.html'
+    success_message = 'La Categoria Fue eliminada.'
+    success_url = reverse_lazy('categorias:admin_listado_noticias')
+    context_object_name = "categorias"

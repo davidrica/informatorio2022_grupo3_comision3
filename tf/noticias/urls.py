@@ -13,6 +13,7 @@ urlpatterns = [
     path('admin/nuevo/', views.NuevaNoticia.as_view(), name="admin_nueva_noticia"),
     path('admin/editar/<int:pk>/', views.EditarNoticias.as_view(), name="editar"),
     path('admin/leer/<int:pk>/', views.LeerNoticias, name="leer"),
+    path('admin/eliminar/<int:pk>', views.EliminarNoticias.as_view(), name='eliminar'),
     #path('me-gusta/<int:id_producto>/', views.dar_me_gusta, name="dar_me_gusta")
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

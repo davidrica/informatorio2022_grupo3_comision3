@@ -15,7 +15,8 @@ SECRET_KEY = 'django-insecure-0^2mgguinasx%g1$$08a(4vzevzk4_nqzcz&4&tk(oel8g-9$&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 #variable para archivos estaticos
 AUTH_USER_MODEL = "usuarios.Usuario"
 STATICFILES_DIRS = (
