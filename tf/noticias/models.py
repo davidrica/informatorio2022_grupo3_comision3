@@ -6,8 +6,8 @@ from categorias.models import Categorias
 
 class Noticias(models.Model):
     fecha = models.DateTimeField()
-    titulo=models.CharField(max_length=30)
-    bajada=models.CharField(max_length=30) #subtítulo 
+    titulo=models.CharField(max_length=100, blank=True,null=True)
+    bajada=models.CharField(max_length=100, blank=True) #subtítulo 
     cuerpo=models.TextField()
     imagen=models.ImageField(upload_to="noticias",null=True, blank=True)
     #1 a muchos
