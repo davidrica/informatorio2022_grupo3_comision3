@@ -48,7 +48,8 @@ class NoticiasFormEditar(forms.ModelForm):
     #        )
     #fecha = forms.DateTimeField(
     #        label="Fecha hora:", 
-    #        widget= forms.DateTimeInput (attrs={"type": "datetime-local", "class": "form-control","value": "2022/12/22 09:41:00"} )
+    #        widget= forms.DateTimeInput (
+    #            attrs={"type": "datetime-local", "class": "form-control"} )
     #        )
     
 

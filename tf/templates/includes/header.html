@@ -4,44 +4,47 @@
 
 {% load static %}
 
-<header>
+<header >
     <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
         <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
             
-            <h3 class="display-7"><img class="mb-2" src="{% static 'img/logo.jpg' %} " alt="" width="64" height="64"> Fundación Mi Bella Ciudad</h3>
+            <h4 class="display-7"><img class="mb-2" src="{% static 'img/logo.jpg' %} " alt="" width="32" height="32"> Fundación Mi Bella Ciudad</h4>
         </a>
 
         <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto align-items-center">
-            
-            <a type="button" class="btn btn-outline-primary" href="{% url 'about' %}">Quiénes somos</a>
-            <a type="button" class="btn btn-outline-primary" href="{% url 'mision' %}">Misión</a>
-            <a type="button" class="btn btn-outline-primary" href="{% url 'vision' %}">Visión</a>
-            <a type="button" class="btn btn-outline-primary" href="{% url 'descargas' %}">descargar</a>
-            <a type="button" class="btn btn-outline-primary" href="{% url 'contacto' %}">contactos</a>
-            <a type="button" class="btn btn-outline-primary" href="{% url 'noticias:admin_listado_noticias' %}">noticias</a>
-            <div class="row m-2">
-            {% if user.is_authenticated %}
-            <div class="flex-shrink-0 dropdown">
-                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="{% static 'img/user.png' %} " alt="mdo" width="32" height="32" class="rounded-circle">
-                {{ user }}
-                </a>
-                <ul class="dropdown-menu text-small shadow">
-                  <li><a class="dropdown-item" href="{% url 'noticias:admin_listado_noticias' %}">Noticias</a></li>
-                  <li><a class="dropdown-item" href="{% url 'categorias:admin_listado_categoria' %}">Categorias</a></li>
-                  <li><a class="dropdown-item" href="#">Mi Cuenta</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar</a></li>
-                </ul>
-              </div>
-            
-            {% else %}
-                <a type="button" class="btn btn-outline-danger" href="{% url 'login' %}"><i class="fa-solid fa-users"></i>Iniciar Session</a>
-                <a type="button" class="btn btn-outline-danger" href="{% url 'usuarios:registro' %}"><i class="fa-solid fa-id-card"></i>Registrarme</a>
-                
-            {% endif %}
-        </div>
-
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group me-2  align-items-center" role="group" aria-label="First group">
+                    <a type="button" class="btn btn-outline-primary" href="{% url 'about' %}">Quiénes somos</a>
+                    <a type="button" class="btn btn-outline-primary" href="{% url 'mision' %}">   Misión   </a>
+                    <a type="button" class="btn btn-outline-primary" href="{% url 'vision' %}">   Visión   </a>
+                    <a type="button" class="btn btn-outline-primary" href="{% url 'descargas' %}">Descargar</a>
+                    <a type="button" class="btn btn-outline-primary" href="{% url 'contacto' %}">Contactos</a>
+                    <a type="button" class="btn btn-outline-primary" href="{% url 'noticias:admin_listado_noticias' %}">noticias</a>
+                </div>
+                <div class="btn-group me-2" role="group" aria-label="Second group">
+                    {% if user.is_authenticated %}
+                        <div class="flex-shrink-0 dropdown">
+                            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{% static 'img/user.png' %} " alt="mdo" width="32" height="32" class="rounded-circle">
+                            {{ user }}
+                            </a>
+                            <ul class="dropdown-menu text-small shadow">
+                            <li>
+                                <a class="dropdown-item" href="{% url 'noticias:admin_listado_noticias' %}">Noticias</a></li>
+                            <li><a class="dropdown-item" href="{% url 'categorias:admin_listado_categoria' %}">Categorias</a></li>
+                            <li><a class="dropdown-item" href="#">Mi Cuenta</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar</a></li>
+                            </ul>
+                        </div>
+                    
+                    {% else %}
+                        <a type="button" class="btn btn-outline-danger" href="{% url 'login' %}"><i class="fa-solid fa-users"></i>Iniciar Session</a>
+                        <a type="button" class="btn btn-outline-danger" href="{% url 'usuarios:registro' %}"><i class="fa-solid fa-id-card"></i>Registrarme</a>
+                        
+                    {% endif %}
+                </div>
+            </div>
 
         </nav>
 
